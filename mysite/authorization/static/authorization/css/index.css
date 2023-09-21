@@ -1,0 +1,148 @@
+.frame-child,
+.frame-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-8xs);
+}
+.frame-child {
+  background-color: var(--color-white);
+  box-shadow: 4px 8px 24px rgba(0, 0, 0, 0.25);
+  width: 430px;
+  height: 509px;
+}
+.frame-item {
+  background-color: var(--color-mediumturquoise);
+  width: 400px;
+  height: 49px;
+}
+.google,
+.social-icons {
+  position: absolute;
+  top: 12px;
+  left: 143px;
+}
+.social-icons {
+  top: 9px;
+  left: 74px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+.div,
+.rectangle-group {
+  position: absolute;
+  top: 181px;
+  left: 15px;
+  width: 400px;
+  height: 49px;
+}
+.div {
+  top: 117px;
+  left: 46px;
+  font-weight: 500;
+  display: inline-block;
+  width: 339px;
+  height: 37px;
+}
+.twitter-header-photo-2fds-1-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-8xs);
+  width: 430px;
+  height: 93px;
+  object-fit: cover;
+}
+.frame-inner,
+.parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.parent {
+  width: 430px;
+  height: 154px;
+  font-size: 29px;
+  color: #004858;
+}
+.frame-inner {
+  border-radius: var(--br-8xs);
+  background-color: var(--color-azure);
+  width: 400px;
+  height: 49px;
+}
+.email {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
+.frame-div,
+.rectangle-container {
+  position: absolute;
+  top: 271px;
+  left: 15px;
+  width: 400px;
+  height: 49px;
+  color: var(--color-gray);
+}
+.frame-div {
+  top: 344px;
+}
+.div2 {
+  position: absolute;
+  top: calc(50% - 18.5px);
+  left: calc(50% - 41px);
+  font-weight: 500;
+}
+.rectangle-parent1 {
+  position: absolute;
+  top: 418px;
+  left: 15px;
+  width: 400px;
+  height: 49px;
+  font-size: 28px;
+}
+.div3 {
+  top: 0;
+  left: 0;
+  font-weight: 100;
+}
+.div3,
+.div4,
+.group {
+  position: absolute;
+}
+.div4 {
+  top: 0;
+  left: 197px;
+  font-weight: 100;
+}
+.group {
+  top: 475px;
+  left: 49px;
+  width: 331px;
+  height: 21px;
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+}
+.rectangle-parent {
+  position: absolute;
+  top: calc(50% - 255px);
+  left: calc(50% - 215px);
+  width: 430px;
+  height: 509px;
+}
+.macbook-air-4 {
+  position: relative;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 735px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  font-family: var(--font-roboto);
+}
+
+
