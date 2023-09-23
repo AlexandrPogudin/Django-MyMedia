@@ -6,29 +6,24 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'authorization/css/global.css' %}" />
-    <link rel="stylesheet" href="{% static 'authorization/css/indexsignin.css' %}" />
+    <link rel="stylesheet" href="{% static 'authorization/css/indexsignup.css' %}" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
     />
   </head>
   <body>
-    <div class="macbook-air-4">
+    <div class="main">
       <div class="rectangle-parent">
         <div class="frame-child"></div>
         <button class="buttongoogle">
-          <div class="google">Войти через Google</div>
+          <div class="google">Регистрация через Google</div>
           <img class="social-icons" alt="" src="{% static 'authorization/image/Social Icons.svg' %}" />
         </button>
         <div class="parent">
-          <div class="div">Вход в личный кабинет</div>
-          <img
-            class="twitter-header-photo-2fds-1-icon"
-            alt=""
-            src="{% static 'authorization/image/twitter_header_photo_2fds 1.svg' %}"
-          />
+          <div class="div">Регистрация</div>
+          <img class="twitter-header-photo-2fds-1-icon" alt="" src="{% static 'authorization/image/twitter_header_photo_2fds 1.svg' %}"/>
         </div>
-
         <div class="input-groupreg">
           <input required="" type="text" name="text" autocomplete="off" class="input">
           <label class="user-label">Электронная почта</label>
@@ -37,17 +32,13 @@
           <input required="" type="password" name="text" autocomplete="off" class="input">
           <label class="user-label">Пароль</label>
         </div>
-        <button class="buttonsignin">
-          <div class="div1">Войти</div>
-        </button>
-        <div class="group">
-          <div class="div3">
-            <a href="/registration">Регистрация</a>
-          </div>
-          <div class="div4">
-            <a href="#">Забыли пароль?</a>
-          </div>
+        <div class="input-grouppastwo">
+          <input required="" type="password" name="text" autocomplete="off" class="input">
+          <label class="user-label">Повтор пароля</label>
         </div>
+        <button class="buttonsignup">
+          <div class="div1">Зарегистрироваться</div>
+        </button>
       </div>
     </div>
   </body>
