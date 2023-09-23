@@ -7,4 +7,7 @@ def sign_in(request):
 def sign_up(request):
     return render(request, 'authorization/sign up.html')
 
+def forgotpassword(request):
+    return render(request, 'authorization/forgotpassword.html')
+
 # Create your views here.

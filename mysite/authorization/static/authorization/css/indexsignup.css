@@ -27,7 +27,7 @@
 .google {
   position: absolute;
   top: 12px;
-  left: 143px;
+  left: 100px;
   }
 
 .div1,
@@ -39,8 +39,6 @@
 .buttonsignup {
     color: #ffffff;
     font-weight: Bold;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
   
     cursor: pointer;
     border: 0;
