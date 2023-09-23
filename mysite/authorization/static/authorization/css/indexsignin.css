@@ -228,7 +228,7 @@
  }
  
  .input:focus ~ label, input:valid ~ label {
-  transform: translateX(-3%) translateY(-100%) scale(0.9);
+  transform: translateX(-3%) translateY(-100%) scale(0.8);
   background-color: #FFFFFF;
   color: rgba(0, 72, 88);
  }
