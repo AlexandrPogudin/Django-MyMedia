@@ -16,11 +16,10 @@
     <div class="macbook-air-4">
       <div class="rectangle-parent">
         <div class="frame-child"></div>
-        <div class="rectangle-group">
-          <div class="frame-item"></div>
+        <button class="buttongoogle">
           <div class="google">Войти через Google</div>
           <img class="social-icons" alt="" src="{% static 'authorization/image/Social Icons.svg' %}" />
-        </div>
+        </button>
         <div class="parent">
           <div class="div">Вход в личный кабинет</div>
           <img
@@ -29,27 +28,27 @@
             src="{% static 'authorization/image/twitter_header_photo_2fds 1.svg' %}"
           />
         </div>
-        <div class="rectangle-container">
-          <div class="frame-inner"></div>
-          <div class="email">Email</div>
+
+        <div class="input-groupreg">
+          <input required="" type="text" name="text" autocomplete="off" class="input">
+          <label class="user-label">Электронная почта</label>
         </div>
-        <div class="frame-div">
-          <div class="frame-inner"></div>
-          <div class="email">Пароль</div>
+        <div class="input-grouppas">
+          <input required="" type="password" name="text" autocomplete="off" class="input">
+          <label class="user-label">Пароль</label>
         </div>
-        <div class="rectangle-parent1">
-          <div class="frame-item"></div>
-          <div class="div2">Войти</div>
-        </div>
+        <button class="buttonsignin">
+          <div class="div1">Войти</div>
+        </button>
         <div class="group">
-          <div class="div3">Регистрация</div>
-          <div class="div4">Забыли пароль?</div>
+          <div class="div3">
+            <a href="#">Регистрация</a>
+          </div>
+          <div class="div4">
+            <a href="#">Забыли пароль?</a>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-
-
-
-
