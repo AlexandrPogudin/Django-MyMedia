@@ -25,6 +25,14 @@ SECRET_KEY = 'django-insecure-%7t!*l5og(g8^t(z7yq3g69-tr0#f$)p=s2!9_6ri!a=gjw5=e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP-сервер
+EMAIL_PORT = 587  # Порт
+EMAIL_USE_TLS = True  # Использовать TLS (True/False)
+
+EMAIL_HOST_USER = 'alexcoperalex@gmail.com'  # Ваш адрес электронной почты
+EMAIL_HOST_PASSWORD = 'ecspoexvphqfdcjt'  # Пароль к вашей почте
+
 ALLOWED_HOSTS = []
 
 

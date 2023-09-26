@@ -14,6 +14,9 @@
   </head>
   <body>
     <div class="macbook-air-4">
+
+      {{ message|safe }}
+
       <div class="rectangle-parent">
         <div class="frame-child"></div>
         <button class="buttongoogle">
@@ -28,26 +31,29 @@
             src="{% static 'authorization/image/twitter_header_photo_2fds 1.svg' %}"
           />
         </div>
-
-        <div class="input-groupreg">
-          <input required="" type="text" name="text" autocomplete="off" class="input">
-          <label class="user-label">Электронная почта</label>
-        </div>
-        <div class="input-grouppas">
-          <input required="" type="password" name="text" autocomplete="off" class="input">
-          <label class="user-label">Пароль</label>
-        </div>
-        <button class="buttonsignin">
-          <div class="div1">Войти</div>
-        </button>
-        <div class="group">
-          <div class="div3">
-            <a href="/registration">Регистрация</a>
+      
+        <form method="POST">
+        {% csrf_token %}
+          <div class="input-groupreg">
+            <input required="" type="text" name="email" autocomplete="off" class="input">
+            <label class="user-label">Электронная почта</label>
           </div>
-          <div class="div4">
-            <a href="/forgotpassword">Забыли пароль?</a>
+          <div class="input-grouppas">
+            <input required="" type="password" name="password" autocomplete="off" class="input">
+            <label class="user-label">Пароль</label>
           </div>
-        </div>
+          <button class="buttonsignin" name = "check_account" type = "submit">
+            <div class="div1">Войти</div>
+          </button>
+          <div class="group">
+            <div class="div3">
+              <a href="/registration">Регистрация</a>
+            </div>
+            <div class="div4">
+              <a href="/forgotpassword">Забыли пароль?</a>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </body>

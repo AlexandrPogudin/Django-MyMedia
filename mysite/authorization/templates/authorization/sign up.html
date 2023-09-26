@@ -14,6 +14,9 @@
   </head>
   <body>
     <div class="main">
+
+      {{ message|safe }}
+
       <div class="rectangle-parent">
         <div class="frame-child"></div>
         <button class="buttongoogle">
@@ -24,22 +27,26 @@
           <div class="div">Регистрация</div>
           <img class="twitter-header-photo-2fds-1-icon" alt="" src="{% static 'authorization/image/twitter_header_photo_2fds 1.svg' %}"/>
         </div>
-        <div class="input-groupreg">
-          <input required="" type="text" name="text" autocomplete="off" class="input">
-          <label class="user-label">Электронная почта</label>
-        </div>
-        <div class="input-grouppas">
-          <input required="" type="password" name="text" autocomplete="off" class="input">
-          <label class="user-label">Пароль</label>
-        </div>
-        <div class="input-grouppastwo">
-          <input required="" type="password" name="text" autocomplete="off" class="input">
-          <label class="user-label">Повтор пароля</label>
-        </div>
-        <button class="buttonsignup">
-          <div class="div1">Зарегистрироваться</div>
-        </button>
+        <form method="POST">
+        {% csrf_token %}
+          <div class="input-groupreg">
+            <input required="" type="text" name="email" autocomplete="off" class="input">
+            <label class="user-label">Электронная почта</label>
+          </div>
+          <div class="input-grouppas">
+            <input required="" type="password" name="password" autocomplete="off" class="input">
+            <label class="user-label">Пароль</label>
+          </div>
+          <div class="input-grouppastwo">
+            <input required="" type="password" name="repeatpassword" autocomplete="off" class="input">
+            <label class="user-label">Повтор пароля</label>
+          </div>
+          <button class="buttonsignup">
+            <div class="div1">Зарегистрироваться</div>
+          </button>
+        </form>
       </div>
+      {{ timertomain|safe }}
     </div>
   </body>
 </html>
