@@ -66,3 +66,7 @@ def forgotpassword(request):
             return render(request, 'authorization/forgotpassword.html', {'message': Error})
         
     return render(request, 'authorization/forgotpassword.html')
+
+
+def mainpage(request):
+    return render(request, 'authorization/mainpage.html')

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'authorization/css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'authorization/css/indexmainpage.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"
+    />
+  </head>
+  <body>
+    <header class="macbook-air-3">
+      <header class="header">
+        <div class="image-parent">
+          <img class="image-icon" alt="" src="{% static 'authorization/image/avatar.png' %}" />
+          <div class="div">Иванов Иван</div>
+          <button class="buttonexit">
+            <img class="interface-exit" alt="" src="{% static 'authorization/image/exit.svg' %}" />
+          </button>
+          <button class="buttonsettings">
+            <img class="interface-settings" alt="" src="{% static 'authorization/image/settings.svg' %}" />
+          </button>
+        </div>
+        <img
+          class="logo-transparent-1-icon"
+          alt=""
+          src="{% static 'authorization/image/logo.png' %}"
+        />
+      </header>
+      <div class="filter">
+        <div class="radio-inputs">
+          <label class="radio">
+            <input type="radio" name="radio" checked="">
+            <span class="name">Видео</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio">
+            <span class="name">Фото</span>
+          </label>
+              
+          <label class="radio">
+            <input type="radio" name="radio">
+            <span class="name">Аудио</span>
+          </label>
+        </div>
+        <div class="dateload">
+          <div class="textdateload">Дата загрузки</div>
+            <form class="form" action="#">
+              <div class="input-box">
+                <input required="" placeholder="Enter birth date" type="date">
+              </div>
+            </form>
+        </div>
+      </div>
+
+      <button class="buttonadd">
+        <img class="add-icon" alt="" src="{% static 'authorization/image/add.svg' %}" />
+      </button>
+
+      <div class="files">
+        <div class="file">
+          <button class="buttondelete">
+            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
+          </button>
+          <button class="buttonnamefile">
+            <div class="textfile">Название файла</div>
+          </button>
+          <div class="datefile">
+            <div class="textfile">27/09/23</div>
+          </div>
+          <div class="typefile">
+            <div class="textfile">MP4</div>
+          </div>
+          <div class="sizefile">
+            <div class="textfile">15 КБ</div>
+          </div>
+        </div>
+        <div class="file">
+          <button class="buttondelete">
+            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
+          </button>
+          <button class="buttonnamefile">
+            <div class="textfile">Название файла</div>
+          </button>
+          <div class="datefile">
+            <div class="textfile">27/09/23</div>
+          </div>
+          <div class="typefile">
+            <div class="textfile">MP4</div>
+          </div>
+          <div class="sizefile">
+            <div class="textfile">15 КБ</div>
+          </div>
+        </div>
+        <div class="file">
+          <button class="buttondelete">
+            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
+          </button>
+          <button class="buttonnamefile">
+            <div class="textfile">Название файла</div>
+          </button>
+          <div class="datefile">
+            <div class="textfile">27/09/23</div>
+          </div>
+          <div class="typefile">
+            <div class="textfile">MP4</div>
+          </div>
+          <div class="sizefile">
+            <div class="textfile">15 КБ</div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>

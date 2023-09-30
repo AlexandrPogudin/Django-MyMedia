@@ -6,6 +6,9 @@ import secrets
 class Users(models.Model):
     email = models.CharField(max_length=200)
     password = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, default='Имя')
+    surname = models.CharField(max_length=200, default='Фамилия')
+    image = models.ImageField(upload_to='avatars', default='')
 
     # Получение пароля
     def get_password(self):
