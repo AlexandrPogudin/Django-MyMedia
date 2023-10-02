@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Users
+from .models import Users, File
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.conf import settings
+from django.shortcuts import redirect
+from django.http import JsonResponse
 
 def sign_in(request):
     if request.method == "POST":
@@ -11,8 +13,8 @@ def sign_in(request):
         password_get = request.POST.get("password")
         try:
             user = Users.objects.get(email = email_get)
-            if user.check_password(password_get):
-                return HttpResponse(f"Пароль верный")
+            if user.check_password(password_get):   
+                return redirect("mainpage", page_id = user.id)
             else:
                 Error = '<div class="error"><div class="textmessage">Пароль не верный</div></div>'
             return render(request, 'authorization/sign in.html', {'message': Error})
@@ -66,3 +68,116 @@ def forgotpassword(request):
             return render(request, 'authorization/forgotpassword.html', {'message': Error})
         
     return render(request, 'authorization/forgotpassword.html')
+
+
+def mainpage(request, page_id):
+    user = Users.objects.get(id = int(page_id))
+    files = File.objects.filter(id_user = int(page_id))
+    avatar = user.image
+    
+    return render(request, 'authorization/mainpage.html', {"name":user.name, "surname": user.surname, "files": files, "user": user})
+
+
+def upload_file(request):
+    if request.method == 'POST' and request.FILES['file']:
+        FK_user = request.POST.get("FK_user")
+        user = Users.objects.get(id = int(FK_user))
+        file_name = request.POST.get('file_name')
+        uploaded_file = request.FILES['file']
+        file_size = request.POST.get("file_size")
+        file_size = str(int(file_size) // 1024) + " КБ"
+        file_type = request.POST.get("file_type")
+
+        # Здесь добавьте код для сохранения данных в базу данных
+
+        file_instance = File(id_user = user, name = file_name, file = uploaded_file, name_type = file_type, size = file_size)
+        file_instance.save()
+
+        response_data = {
+            'status': 'success',
+            'message': 'Файл успешно загружен',
+            'file_name': file_name,
+            'file_size': file_size,
+            'file_type': file_type
+        }
+        return JsonResponse(response_data)
+    else:
+        response_data = {
+            'status': 'error',
+            'message': 'Ошибка при загрузке файла'
+        }
+        return JsonResponse(response_data, status=400)
+    
+def changepassword(request):
+    if request.method == 'POST':
+        FK_user = request.POST.get("FK_user")
+        user = Users.objects.get(id = int(FK_user))
+        oldpassword = request.POST.get("oldpassword")
+        newpassword = request.POST.get("newpassword")
+        if user.hash_password(newpassword):
+            user.save()
+        
+        response_data = {
+            'status': 'success',
+            'message': 'Пароль изменен'
+        }
+        return JsonResponse(response_data)
+    else:
+        response_data = {
+            'status': 'error',
+            'message': 'Ошибка при загрузке пароля'
+        }
+        return JsonResponse(response_data, status=400)
+    
+def changeinfo(request):
+    if request.method == 'POST':
+        FK_user = request.POST.get("FK_user")
+        user = Users.objects.get(id = int(FK_user))
+        name = request.POST.get("name")
+        surname = request.POST.get("surname")
+        haveavatar = request.POST.get("haveavatar")
+
+        if haveavatar == "true":
+            avatar = request.FILES['avatar']
+            user.image = avatar
+
+        if name != "default":
+            user.name = name
+        
+        if surname != "default":
+            user.surname = surname
+
+        if haveavatar == "true":
+            user.image = avatar
+
+        user.save()
+
+        response_data = {
+            'status': 'success',
+            'message': 'Данные изменены'
+        }
+        return JsonResponse(response_data)
+    else:
+        response_data = {
+            'status': 'error',
+            'message': 'Ошибка при загрузке данных'
+        }
+        return JsonResponse(response_data, status=400)
+
+
+
+def deletefile(request):
+    print("+")
+    if request.method == 'POST':
+        try:
+            FK_user = request.POST.get("FK_user")
+            user = Users.objects.get(id = int(FK_user))
+            file_id = request.POST.get('idfile')
+            print(file_id)
+            print(user)
+            file_to_delete = File.objects.get(id=file_id)
+            file_to_delete.delete()
+            return JsonResponse({'message': 'File deleted successfully'})
+        except Exception as e:
+            return JsonResponse({'error': str(e)})
+    return JsonResponse({'error': 'Invalid request method'})

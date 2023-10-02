@@ -1,0 +1,17 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 2" clip-path="url(#clip0_356_934)">
+<path id="Line 4 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M25 3.75H0V2.5H25V3.75Z" fill="#F69595"/>
+<path id="Vector 1 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M2.50204 2.71716L3.74797 2.61627L5.45925 23.75H19.2558L21.2528 2.75332L22.4972 2.87167L20.3926 25H4.30638L2.50204 2.71716Z" fill="#F69595"/>
+<g id="Group 1">
+<path id="Vector 2 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M11.875 21.25V6.25H13.125V21.25H11.875Z" fill="#F69595"/>
+<path id="Vector 4 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M8.125 21.25V6.25H9.375V21.25H8.125Z" fill="#F69595"/>
+<path id="Vector 3 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M15.625 21.25V6.25H16.875V21.25H15.625Z" fill="#F69595"/>
+</g>
+<path id="Rectangle 1" d="M10.625 0H14.375V1.25H10.625V0Z" fill="#F69595"/>
+</g>
+<defs>
+<clipPath id="clip0_356_934">
+<rect width="25" height="25" fill="white"/>
+</clipPath>
+</defs>
+</svg>
