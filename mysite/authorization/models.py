@@ -2,6 +2,7 @@ from django.db import models
 from passlib.hash import bcrypt
 import string
 import secrets
+from django.core.validators import FileExtensionValidator
 
 class Users(models.Model):
     email = models.CharField(max_length=200)
@@ -17,10 +18,8 @@ class Users(models.Model):
     # Функция для шифрования пароля
     def hash_password(self, password):
         try:
-            print(self.password)
             # Генерируем хэш пароля
             self.password = bcrypt.hash(password)
-            print(self.password)
             return True
         except:
             return False
@@ -28,7 +27,6 @@ class Users(models.Model):
     # Функция для проверки совпадения введенного пароля с хэшированным паролем
     def check_password(self, input_password):
         # Проверяем совпадение паролей
-        print(self.password)
         return bcrypt.verify(input_password, self.password)
     
     def generate_password(self):
@@ -39,4 +37,14 @@ class Users(models.Model):
         self.hash_password(password)
         return password
     
+
+class File(models.Model):
+    id_user = models.ForeignKey(Users, on_delete=models.CASCADE, default=1)
+    name = models.CharField(max_length=300, default="Название файла")
+    file = models.FileField(upload_to='files_users/', 
+                            validators=[FileExtensionValidator(allowed_extensions=['mp4', 'mp3', 'png', 'jpg'])])
+    name_type = models.CharField(max_length=100, default="TYPE")
+    size = models.CharField(max_length=200, default="SIZE")
+    create_at = models.DateTimeField(auto_now_add=True)
+
 # Create your models here.

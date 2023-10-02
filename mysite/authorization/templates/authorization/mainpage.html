@@ -15,12 +15,12 @@
     <header class="macbook-air-3">
       <header class="header">
         <div class="image-parent">
-          <img class="image-icon" alt="" src="{% static 'authorization/image/avatar.png' %}" />
-          <div class="div">Иванов Иван</div>
-          <button class="buttonexit">
+          <img class="image-icon" alt="" src="{{ user.image.url }}" />
+          <div class="div">{{ name }} {{ surname }}</div>
+          <button id="buttonexit" class="buttonexit">
             <img class="interface-exit" alt="" src="{% static 'authorization/image/exit.svg' %}" />
           </button>
-          <button class="buttonsettings">
+          <button id="buttonsettings" class="buttonsettings">
             <img class="interface-settings" alt="" src="{% static 'authorization/image/settings.svg' %}" />
           </button>
         </div>
@@ -34,16 +34,23 @@
         <div class="radio-inputs">
           <label class="radio">
             <input type="radio" name="radio" checked="">
+            <span class="name">Все</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio">
             <span class="name">Видео</span>
           </label>
           <label class="radio">
             <input type="radio" name="radio">
             <span class="name">Фото</span>
           </label>
-              
           <label class="radio">
             <input type="radio" name="radio">
             <span class="name">Аудио</span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="radio">
+            <span class="name">Документы</span>
           </label>
         </div>
         <div class="dateload">
@@ -56,63 +63,102 @@
         </div>
       </div>
 
-      <button class="buttonadd">
+      <button id="addfile" class="buttonadd">
         <img class="add-icon" alt="" src="{% static 'authorization/image/add.svg' %}" />
       </button>
-
+      
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
       <div class="files">
-        <div class="file">
-          <button class="buttondelete">
-            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
-          </button>
-          <button class="buttonnamefile">
-            <div class="textfile">Название файла</div>
-          </button>
-          <div class="datefile">
-            <div class="textfile">27/09/23</div>
-          </div>
-          <div class="typefile">
-            <div class="textfile">MP4</div>
-          </div>
-          <div class="sizefile">
-            <div class="textfile">15 КБ</div>
-          </div>
-        </div>
-        <div class="file">
-          <button class="buttondelete">
-            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
-          </button>
-          <button class="buttonnamefile">
-            <div class="textfile">Название файла</div>
-          </button>
-          <div class="datefile">
-            <div class="textfile">27/09/23</div>
-          </div>
-          <div class="typefile">
-            <div class="textfile">MP4</div>
-          </div>
-          <div class="sizefile">
-            <div class="textfile">15 КБ</div>
-          </div>
-        </div>
-        <div class="file">
-          <button class="buttondelete">
-            <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
-          </button>
-          <button class="buttonnamefile">
-            <div class="textfile">Название файла</div>
-          </button>
-          <div class="datefile">
-            <div class="textfile">27/09/23</div>
-          </div>
-          <div class="typefile">
-            <div class="textfile">MP4</div>
-          </div>
-          <div class="sizefile">
-            <div class="textfile">15 КБ</div>
+        {% for file in files %}
+            <div class="file" data-type="{{ file.name_type }}" data-date="{{ file.create_at }}" data-file-path = "{{ file.file }}">
+                <button id ="buttondelete" class="buttondelete" data-file-id="{{ file.id }}">
+                    <img class="deleteimg" alt="" src="{% static 'authorization/image/delete.svg' %}" />
+                </button>
+                <button class="buttonnamefile">
+                    <div class="textfile">{{ file.name }}</div>
+                </button>
+                <div class="datefile">
+                    <div class="textfile">{{ file.create_at }}</div>
+                </div>
+                <div class="typefile">
+                    <div class="textfile">{{ file.name_type }}</div>
+                </div>
+                <div class="sizefile">
+                    <div class="textfile">{{ file.size }}</div>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+      </form>
+
+      <div id="ExitFrame" style="display: none;">
+        <div class="exitblock">
+          <div class="exitform"> 
+            <div class="textexit">Вы действительно хотите выйти?</div>
+            <button id="signinpageclick" class="exitbuttonexit" data-home-url="{% url 'signin' %}">
+              <div class="textbuttonexit">Выйти</div>
+            </button>
+            <button id="canselexitclick" class="exitbuttoncansel">
+              <div class="textbuttonexit">Отмена</div>
+            </button>
           </div>
         </div>
       </div>
+
+      <div id="NewFileFrame" style="display: none;">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+        <div class="newfileblock">
+          <div class="newfileform"> 
+            <div class="textnewfile">Загрузка нового файла</div>
+            <input class="newfileinputname" type="text" placeholder="Название файла"/>
+            <input id="file" type="file" class="newfileinput" name = "file">
+            <button id="newfilebuttonsave" class="newfilebuttonsave">
+              <div class="newfiletextsave">Сохранить</div>
+            </button>
+            <button id="newfilebuttoncansel" class="newfilebuttoncansel">
+              <div class="newfiletextcansel">Отмена</div>
+            </button>
+          </div>
+        </div>
+        </form>
+      </div>
+
+      <div id="NewInfoFrame" style="display: none;">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="newinfoblock">
+          <div class="newinfoform"> 
+            <div class="textinfo">Смена информации</div>
+            <input id="avatar" type="file" class="avatarinput">
+            <input class="inputname" type="text" placeholder="Имя"/>
+  
+            <input class="inputsurname" type="text" placeholder="Фамилия"/>
+  
+            <input class="inputoldpassword" type="text" placeholder="Текущий пароль"/>
+  
+            <input class="inputnewpassword" type="text" placeholder="Новый пароль"/>
+  
+            <div class="textchangepassword">Смена пароля</div>
+            <button id="newinfobuttonsave1" class="newinfobuttonsave1">
+              <div class="newinfotextsave">Сохранить</div>
+            </button>
+            <button id="newinfobuttoncansel" class="newinfobuttoncansel">
+              <div class="newinfotextcansel">Закрыть</div>
+            </button>
+            <button id="newinfobuttonsave2" class="newinfobuttonsave2">
+              <div class="newinfotextsave">Сохранить</div>
+            </button>
+          </div>
+        </div>
+      </form>
+      </div>
+
+
+    <!-- Подключите ваш статический файл с JavaScript -->
+      <script src="{% static 'authorization/js/main.js' %}"></script>
+
     </header>
   </body>
 </html>

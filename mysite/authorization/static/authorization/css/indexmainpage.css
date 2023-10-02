@@ -47,12 +47,12 @@
   .dateload {
     color: #004858;
     position: absolute;
-    top: 5px;
+    top: 3px;
     left: 0;
   }
   .dateload {
     top: 8px;
-    left: 422px;
+    left: 550px;
     width: 344px;
     height: 34px;
   }
@@ -63,7 +63,7 @@
     left: 25px;
     border-radius: var(--br-8xs);
     background-color: var(--color-azure);
-    width: 785px;
+    width: 915px;
     height: 49px;
   }
   
@@ -94,7 +94,15 @@
     left: 80%;
   }
   
+  .files {
+    margin-top: 210px;
+    max-height: 500px; /* Максимальная высота контейнера с файлами */
+    overflow-y: auto; /* Добавляет вертикальную полосу прокрутки при необходимости */
+    position: relative; 
+}
+
   .file {
+    position: relative; 
     width: calc(100% - 36px);
     margin-left: 25px;
     border-radius: var(--br-8xs);
@@ -108,10 +116,6 @@
     margin-bottom: 10px;
   }
   
-  .file:first-child {
-    margin-top: 250px;
-  }
-  
   .radio-inputs {
     position: relative;
     left: 4px;
@@ -119,7 +123,7 @@
     flex-wrap: wrap;
     background-color: #f1fbfb;
     padding: 0.25rem;
-    width: 300px;
+    width: 500px;
     font-size: var(--font-size-xl);
   }
   
@@ -276,4 +280,440 @@
     color: var(--color-darkslategray);
     font-family: var(--font-roboto);
   }
+
+
+
+  .textexit {
+    position: absolute;
+    top: 280px;
+    left: calc(50% - 155px);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--color-darkslategray-100);
+  }
+  .textbuttonexit {
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 30px);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-white);
+    text-align: center;
+  }
+  
+  .exitbuttonexit {
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-mediumturquoise);
+    top: 330px;
+    left: calc(50% - 250px);
+    border-radius: var(--br-8xs);
+    width: 162px;
+    height: 35px;
+  }
+  .exitbuttoncansel {
+    position: absolute;
+    border-radius: var(--br-8xs);
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #f69595;
+    top: 330px;
+    left: calc(50% + 90px);
+    width: 162px;
+    height: 35px;
+  }
+  
+  .exitbuttonexit:hover{
+    background-color: #68C5B9;
+    box-shadow: 0 0 20px #6ff8ff89;
+    transform: scale(1.01);
+  }
+  
+  .exitbuttonexit:active {
+    background-color: #5CADA3;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .exitbuttoncansel:hover {
+    background-color: #f68181;
+    box-shadow: 0 0 10px #df81818f;
+    transform: scale(1.01);
+  }
+  
+  .exitbuttoncansel:active {
+    background-color: #df6a6a;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .exitform {
+    border-radius: var(--br-8xs);
+    margin-top: 250px;
+    margin-left: calc(50% - 300px);
+    background-color: var(--color-white);
+    width: 600px;
+    height: 130px;
+    overflow: hidden;
+  }
+  
+  .exitblock {
+    position: absolute;
+    top: 80px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    justify-content: center;
+  }
+
+
+  .textnewfile {
+    position: absolute;
+    top: 270px;
+    left: calc(50% - 105px);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--color-darkslategray-100);
+  }
+  
+  .newfiletextsave {
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 50px);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-white);
+    text-align: center;
+  }
+  
+  .newfiletextcansel {
+    position: absolute;
+    top: calc(50% - 11.5px);
+    left: calc(50% - 35px);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-white);
+    text-align: center;
+  }
+  
+  .newfilebuttonsave {
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-mediumturquoise);
+    top: 440px;
+    left: calc(50% - 250px);
+    border-radius: var(--br-8xs);
+    width: 162px;
+    height: 35px;
+  }
+  .newfilebuttoncansel {
+    position: absolute;
+    border-radius: var(--br-8xs);
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #f69595;
+    top: 440px;
+    left: calc(50% + 90px);
+    width: 162px;
+    height: 35px;
+  }
+  
+  .newfilebuttonsave:hover{
+    background-color: #68C5B9;
+    box-shadow: 0 0 20px #6ff8ff89;
+    transform: scale(1.01);
+  }
+  
+  .newfilebuttonsave:active {
+    background-color: #5CADA3;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .newfilebuttoncansel:hover {
+    background-color: #f68181;
+    box-shadow: 0 0 10px #df81818f;
+    transform: scale(1.01);
+  }
+  
+  .newfilebuttoncansel:active {
+    background-color: #df6a6a;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .newfileform {
+    border-radius: var(--br-8xs);
+    margin-top: 250px;
+    margin-left: calc(50% - 300px);
+    background-color: var(--color-white);
+    width: 600px;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  
+  .newfileinputname{
+    background-color: var(--color-azure);
+    position: absolute;
+    border-radius: var(--br-8xs);
+    top: 315px;
+    left: calc(50%-125px);
+    width: 528px;
+    border: 2px solid transparent;
+    height: 3em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    transition: all 0.5s;
+  }
+  
+  .newfileinputname:hover,
+  .newfileinputname:focus{
+    border: 2px solid #71d2c6;
+    box-shadow: 0px 0px 0px 7px rgba(74, 220, 236, 0.2);
+    background-color: white;
+  }
+  
+  .newfileinput {
+    left: 27px;
+    margin-top: 125px;
+    flex: 1;
+    height: 1.2rem;
+    width: 518px;
+    border-radius: 0.375rem;
+    border: 1px solid #e2e8f0;
+    background-color: #fff;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+  
+  .newfileblock{
+    position: absolute;
+    top: 80px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  
+  .inputname,
+  .inputnewpassword,
+  .inputsurname,
+  .inputoldpassword {
+    background-color: var(--color-azure);
+    position: absolute;
+    border-radius: var(--br-8xs);
+  }
+  
+  .inputname, .inputsurname {
+    border: 0;
+    top: 97px;
+    left: 27px;
+    width: 250px;
+    height: 49px;
+  }
+  
+  .inputsurname {
+    left: 305px;
+  }
+  
+  .inputnewpassword, .inputoldpassword {
+    border: 0;
+    top: 219px;
+    left: 27px;
+    width: 400px;
+    height: 49px;
+  }
+  
+  .inputoldpassword {
+    top: 287px;
+  }
+  
+  .textchangepassword {
+    position: absolute;
+    top: 171px;
+    left: 134px;
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--color-darkslategray-100);
+  }
+  .newinfotextsave {
+    top: calc(50% - 11.5px);
+    left: calc(50% - 50px);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-white);
+    text-align: center;
+  }
+  .newinfotextsave,
+  .newinfotextcansel,
+  .newinfobuttonsave1 {
+    position: absolute;
+  }
+  .newinfobuttonsave1 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-mediumturquoise);
+    top: 355px;
+    left: 27px;
+    border-radius: var(--br-8xs);
+    width: 162px;
+    height: 35px;
+  }
+  .newinfotextcansel {
+    top: calc(50% - 11.5px);
+    left: calc(50% - 40px);
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-white);
+    text-align: center;
+  }
+  .newinfobuttoncansel {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: #f69595;
+    top: 355px;
+    left: 411px;
+    width: 162px;
+    height: 35px;
+  }
+  .newinfobuttoncansel,
+  .newinfobuttonsave2,
+  .newinfoform {
+    position: absolute;
+    border-radius: var(--br-8xs);
+  }
+  .newinfobuttonsave2 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-mediumturquoise);
+    top: 165px;
+    left: 411px;
+    width: 162px;
+    height: 35px;
+  }
+  
+  .newinfobuttonsave1:hover,
+  .newinfobuttonsave2:hover {
+    background-color: #68C5B9;
+    box-shadow: 0 0 20px #6ff8ff89;
+    transform: scale(1.01);
+  }
+  
+  .newinfobuttonsave1:active,
+  .newinfobuttonsave2:active {
+    background-color: #5CADA3;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .newinfobuttoncansel:hover {
+    background-color: #f68181;
+    box-shadow: 0 0 10px #df81818f;
+    transform: scale(1.01);
+  }
+  
+  .newinfobuttoncansel:active {
+    background-color: #df6a6a;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+  
+  .newinfoform {
+    top: 176px;
+    left: calc(50% - 300px);
+    background-color: var(--color-white);
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .avatarinput {
+    left: 27px;
+    margin-top: 10px;
+    flex: 1;
+    height: 1.2rem;
+    width: 518px;
+    border-radius: 0.375rem;
+    border: 1px solid #e2e8f0;
+    background-color: #fff;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+  
+  .textinfo{
+    top: 2px;
+    font-size: var(--font-size-xl);
+    font-family: var(--font-roboto);
+    color: var(--color-darkslategray-100);
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .newinfoblock {
+    position: absolute;
+    top: 80px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  .inputname, .inputsurname, .inputoldpassword, .inputnewpassword {
+    border: 2px solid transparent;
+    height: 3em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+  .inputoldpassword, .inputnewpassword {
+    width: 39.7em;
+  }
+  
+  
+  .inputname:hover,
+  .inputname:focus,
+  .inputsurname:hover,
+  .inputsurname:focus,
+  .inputoldpassword:hover,
+  .inputoldpassword:focus,
+  .inputnewpassword:hover,
+  .inputnewpassword:focus {
+    border: 2px solid #71d2c6;
+    box-shadow: 0px 0px 0px 7px rgba(74, 220, 236, 0.2);
+    background-color: white;
+  }
+
   
