@@ -19,10 +19,12 @@
 
       <div class="rectangle-parent">
         <div class="frame-child"></div>
+        <a href="{% url 'social:begin' 'google-oauth2' %}">
         <button class="buttongoogle">
           <div class="google">Войти через Google</div>
           <img class="social-icons" alt="" src="{% static 'authorization/image/Social Icons.svg' %}" />
         </button>
+      </a>
         <div class="parent">
           <div class="div">Вход в личный кабинет</div>
           <img

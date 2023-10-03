@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls import include
 
 from . import views
 
@@ -11,4 +12,6 @@ urlpatterns = [
     path('changepassword/', views.changepassword, name='changepassword'),
     path('changeinfo/', views.changeinfo, name='changeinfo'),
     path('deletefile/', views.deletefile, name='deletefile'),
+    path('auth/', include('social_django.urls', namespace='social')),
+    path('google-oauth2-complete/', views.google_oauth2_callback, name='google_oauth2_callback'),
 ]

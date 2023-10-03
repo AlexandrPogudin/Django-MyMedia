@@ -6,6 +6,9 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import redirect
 from django.http import JsonResponse
+from social_django.models import UserSocialAuth
+
+import requests
 
 def sign_in(request):
     if request.method == "POST":
@@ -181,3 +184,27 @@ def deletefile(request):
         except Exception as e:
             return JsonResponse({'error': str(e)})
     return JsonResponse({'error': 'Invalid request method'})
+
+def google_oauth2_callback(request):
+    user_social_auth = UserSocialAuth.objects.filter(user=request.user).first()
+
+    user_social_auth and user_social_auth.extra_data
+    extra_data = user_social_auth.extra_data
+    access_token = extra_data.get('access_token')  # Получаем email из extra_data
+
+    url = 'https://www.googleapis.com/oauth2/v3/userinfo'  # URL для получения информации о пользователе
+    headers = {'Authorization': f'Bearer {access_token}'}  # Добавляем токен в заголовки запроса
+    response = requests.get(url, headers=headers)  # Отправляем GET запрос к Google API
+
+    email_get = "---"
+    if response.status_code == 200:
+        user_info = response.json()  # Парсим JSON ответ
+        email_get = user_info.get('email')  # Получаем email из ответа
+        
+    try:
+        user = Users.objects.get(email = email_get)
+        return redirect("mainpage", page_id = user.id)
+
+    except ObjectDoesNotExist:
+        new_user = Users(email = email_get)
+        new_user.save()
