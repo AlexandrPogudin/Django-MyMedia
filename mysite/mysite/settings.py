@@ -36,6 +36,13 @@ EMAIL_HOST_PASSWORD = 'ecspoexvphqfdcjt'  # Пароль к вашей почт�
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+)
+LOGIN_REDIRECT_URL = '/google-oauth2-complete/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '528118577191-dhcih6k7h6uio8rl2gaeq3ps4qb6cb1k.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email']
 
 # Application definition
 
@@ -47,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
 ]
 
 MIDDLEWARE = [
